@@ -8,7 +8,6 @@ namespace Metalama.Logging.Console
     static class LogHelpers
     {
         #region Public Methods
-
         public static InterpolatedStringBuilder BuildInterpolatedString(bool includeOutParameters)
         {
             var stringBuilder = new InterpolatedStringBuilder();
