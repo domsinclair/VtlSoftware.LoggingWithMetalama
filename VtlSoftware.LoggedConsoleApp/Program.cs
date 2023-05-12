@@ -4,9 +4,10 @@ using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
-    internal class Program
+    internal partial class Program
     {
         #region Private Methods
+
         [NoLog]
         static void Main(string[] args)
         {

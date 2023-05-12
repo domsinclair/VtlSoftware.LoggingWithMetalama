@@ -1,4 +1,8 @@
-﻿using Metalama.Extensions.DependencyInjection;
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
+// <summary>Implements the log attribute class</summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using Metalama.Extensions.DependencyInjection;
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 using Metalama.Framework.Code.SyntaxBuilders;
@@ -20,12 +24,30 @@ namespace Vtl.LogToConsole
     {
         #region Fields
 
+        /// <summary>
+        /// (Immutable) The logger.
+        /// </summary>
         [IntroduceDependency]
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         private readonly ILogger logger;
 
         #endregion
 
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
+
         #region Public Methods
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+/// Builds an aspect.
+/// </summary>
+        ///
+        /// <param name="builder">The builder.</param>
+        ///
+        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.BuildAspect(IAspectBuilder{IMethod})"/>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public override void BuildAspect(IAspectBuilder<IMethod> builder)
         {
             if(!(builder.Target.Attributes.OfAttributeType(typeof(NoLogAttribute)).Any() ||
@@ -34,6 +56,16 @@ namespace Vtl.LogToConsole
                 builder.Advice.Override(builder.Target, nameof(this.OverrideMethod));
             }
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+        /// Default template of the new method implementation.
+        /// </summary>
+        ///
+        /// <returns>A dynamic?</returns>
+        ///
+        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.OverrideMethod()"/>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public override dynamic? OverrideMethod()
         {

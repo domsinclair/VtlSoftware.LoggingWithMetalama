@@ -5,6 +5,7 @@
 	<LangVersion>10.0</LangVersion>
 	<Nullable>enable</Nullable>
 	<SensitiveDataPath>$([System.IO.Path]::Combine($(MSBuildProjectDirectory), `Sensitive.txt`))</SensitiveDataPath>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +16,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<CompilerVisibilityProperty Include="SensitiveDataPath"/>
+		<CompilerVisibilityProperty Include="SensitiveDataPath" />
 	</ItemGroup>
 
 </Project>

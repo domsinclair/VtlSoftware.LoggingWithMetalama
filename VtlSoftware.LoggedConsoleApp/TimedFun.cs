@@ -3,9 +3,10 @@ using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
-    internal class TimedFun
+    internal partial class TimedFun
     {
         #region Public Methods
+
         [TimedLog]
         public void Delay()
         {

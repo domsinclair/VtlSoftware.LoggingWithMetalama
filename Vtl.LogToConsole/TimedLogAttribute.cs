@@ -1,4 +1,8 @@
-﻿using Metalama.Extensions.DependencyInjection;
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
+// <summary>Implements the timed log attribute class</summary>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using Metalama.Extensions.DependencyInjection;
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
 using Metalama.Framework.Code.SyntaxBuilders;
@@ -10,7 +14,8 @@ namespace Vtl.LogToConsole
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>
-    /// Attribute for timed log.
+    /// Attribute for timed log. This is the same as the main Log Attrute that provides a set of basic logging
+    /// instructions to a method as well as recording the elapsed time.
     /// </summary>
     ///
     /// <seealso cref="OverrideMethodAspect"/>
@@ -19,24 +24,43 @@ namespace Vtl.LogToConsole
     public class TimedLogAttribute : OverrideMethodAspect
     {
         #region Fields
+
+        /// <summary>
+        /// (Immutable) The logger.
+        /// </summary>
         [IntroduceDependency]
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         private readonly ILogger logger;
 
         #endregion
 
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+
+
         #region Public Methods
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+/// Default template of the new method implementation.
+/// </summary>
+        ///
+        /// <returns>A dynamic?</returns>
+        ///
+        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.OverrideMethod()"/>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public override dynamic? OverrideMethod()
         {
             // Determine if tracing is enabled.
             var isTracingEnabled = logger.IsEnabled(LogLevel.Trace);
 
             // Write entry message.
-            if(isTracingEnabled)
-            {
-                var entryMessage = LogHelpers.BuildInterpolatedString(false);
-                entryMessage.AddText(" started.");
-                logger.LogTrace((string)entryMessage.ToValue());
-            }
+            //if(isTracingEnabled)
+            //{
+            //    var entryMessage = LogHelpers.BuildInterpolatedString(false);
+            //    entryMessage.AddText(" started.");
+            //    logger.LogTrace((string)entryMessage.ToValue());
+            //}
 
             Stopwatch watch = Stopwatch.StartNew();
 

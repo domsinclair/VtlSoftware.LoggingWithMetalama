@@ -15,10 +15,9 @@ namespace VtlSoftware.LoggedConsoleApp
     /// A calculator. This class contains four methods providing basic arithmetic functions. There is no default
     /// constructor.
     /// </summary>
-    internal class Calculator
+    internal partial class Calculator
     {
         #region Public Methods
-
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
 /// Adds.
