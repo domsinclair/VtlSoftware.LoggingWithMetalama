@@ -11,4 +11,10 @@
     <ProjectReference Include="..\Vtl.LogToConsole\Vtl.LogToConsole.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="sensitive.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -31,3 +31,28 @@ Realistically providing elapsed time for all logged methods is superfluous so th
 ### [NotLogged]
 
 An attribute intended to be assigned to parameters whose real value should NOT be returned in a log in order that confidential information remains confisential.
+
+
+## Additional Files of Interest
+
+### SensitiveParameterFilter.cs
+
+This class is essentially using a configuration mechanism that has been provided to read a list of names that have been applied to parameters by the developer(s) of the solution using this logging class library that may contain sensitive information that should be obfuscated in the output log.
+
+The combination of this and the [NotLogged] attribute should, in theory at least, provide an efficient catch all.
+
+**NB This is by no means 100% foolproof.  Sensitive data could still slip through the net and it is up to you to ensure that you have sufficient unit tests in place to ensure that this doesn't happen.**
+
+### LoggingOptions.cs
+
+This file is responsible for accessing and controlling our configuration.
+
+In this example we are refercing a file 'sensitive.txt' which we have set as an MSBuild property.
+
+### LogHelpers.cs
+
+This static class contains a helper method (BuildInterpolatedString) that provides string building for the log entries that we create and send to the console.
+
+### LogFabric.cs
+
+This file is the one that performs the magic and ensures that the classes and their methods in the projects that reference this class library get the [Log} aspect added to them according to our ruleset defined within.
