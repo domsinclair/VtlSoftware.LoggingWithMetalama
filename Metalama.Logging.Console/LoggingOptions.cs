@@ -1,5 +1,9 @@
 ﻿using Metalama.Framework.Project;
 using System;
+using System.Collections.Immutable;
+using System.IO;
+using System.Linq;
+using System.Net;
 
 namespace Metalama.Logging.Console
 {
@@ -7,7 +11,7 @@ namespace Metalama.Logging.Console
     {
         #region Fields
 
-        private string[] sensitiveData = null;
+        private ImmutableHashSet<string> sensitiveData = ImmutableHashSet<string>.Empty;
 
         #endregion
 
@@ -16,17 +20,40 @@ namespace Metalama.Logging.Console
         {
             base.Initialize(project, isReadOnly);
 
-            if(project.TryGetProperty("SensitiveData", out var propertyValue))
+            var builder = ImmutableHashSet.CreateBuilder(StringComparer.OrdinalIgnoreCase);
+
+            void AddKeywords(string line)
             {
-                //do stuff to convert propertyValue to string array here then we'd set sensitiveData
-                //this.sensitiveData = propertyValue;
+                foreach (var keyword in line.Split(new[]
+                             { ' ', ',', ';' }).Select( x => x.Trim()).Where(x=>!string.IsNullOrEmpty(x)))
+                {
+                    builder.Add(keyword);
+                }
             }
+
+            if(project.TryGetProperty("SensitiveData", out var sensitiveDataPropertyValue))
+            {
+                AddKeywords(sensitiveDataPropertyValue);
+             
+            }
+            
+            if(project.TryGetProperty("SensitiveDataFile", out var sensitiveDataFile))
+            {
+                // TODO: this data is cached, and no caching invalidation mechanism is implemented for external files.
+                // Therefore, the user needs to restart the IDE after changing that file.
+                foreach (var line in File.ReadAllLines(sensitiveDataFile))
+                {
+                    AddKeywords(line);
+                }
+            }
+            
+            sensitiveData = builder.ToImmutable();
         }
 
         #endregion
 
         #region Public Properties
-        public string[] SensitiveData
+        public ImmutableHashSet<string> SensitiveData
         {
             get => this.sensitiveData;
 
