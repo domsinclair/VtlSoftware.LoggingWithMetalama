@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Metalama.Logging.Console\Metalama.Logging.Console.csproj" />
+    <ProjectReference Include="..\Vtl.LogToConsole\Vtl.LogToConsole.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,10 @@
-﻿using Metalama.Logging.Console;
+﻿using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
     internal class StringStuff
     {
         #region Public Methods
-
         public bool LoginWithObfuscation(string username, [NotLogged]string userSecret)
         {
             try

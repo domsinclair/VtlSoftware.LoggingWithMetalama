@@ -1,12 +1,11 @@
-﻿using Metalama.Logging.Console;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
     internal class TimedFun
     {
         #region Public Methods
-
         [TimedLog]
         public void Delay()
         {

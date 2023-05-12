@@ -7,7 +7,7 @@
 // <summary>Implements the calculator class</summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-using Metalama.Logging.Console;
+using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
@@ -18,6 +18,7 @@ namespace VtlSoftware.LoggedConsoleApp
     internal class Calculator
     {
         #region Public Methods
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
 /// Adds.

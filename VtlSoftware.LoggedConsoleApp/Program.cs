@@ -1,13 +1,12 @@
-﻿using Metalama.Logging.Console;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
     internal class Program
     {
         #region Private Methods
-
         [NoLog]
         static void Main(string[] args)
         {
