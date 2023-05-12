@@ -1,5 +1,7 @@
 # Metalama.Logging.Console
 
+TODO: Do not name your project with the prefix Metalama. It's reserved for us on nuget.org.
+
 This class library provides aspects to add logging to a project which will print out to the console.
 
 It uses Microsoft.Extensions.Logging, which means that you should in fact be able to use this with any Logging Framework of your choice that supports the production of Text based logs.
