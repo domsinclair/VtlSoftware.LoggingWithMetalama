@@ -39,6 +39,8 @@ namespace Metalama.Logging.Console
             
             if(project.TryGetProperty("SensitiveDataFile", out var sensitiveDataFile))
             {
+                // TODO: this data is cached, and no caching invalidation mechanism is implemented for external files.
+                // Therefore, the user needs to restart the IDE after changing that file.
                 foreach (var line in File.ReadAllLines(sensitiveDataFile))
                 {
                     AddKeywords(line);
