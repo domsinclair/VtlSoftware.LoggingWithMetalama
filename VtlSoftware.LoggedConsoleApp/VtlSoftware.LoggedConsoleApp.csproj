@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vtl.LogToConsole\Vtl.LogToConsole.csproj" />
+    <ProjectReference Include="..\Vtl.TimeSavers\Vtl.TimeSavers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

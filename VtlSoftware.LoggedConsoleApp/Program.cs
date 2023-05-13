@@ -7,7 +7,6 @@ namespace VtlSoftware.LoggedConsoleApp
     internal partial class Program
     {
         #region Private Methods
-
         [DoNotLogMethod]
         static void Main(string[] args)
         {
@@ -36,6 +35,7 @@ namespace VtlSoftware.LoggedConsoleApp
             {
                 Console.WriteLine(stringStuff.LoginWithoutObfuscation("Dom", "MySecretPassword").ToString());
                 Console.WriteLine(stringStuff.LoginWithObfuscation("Dom", "MySecretPassword").ToString());
+                stringStuff.PlayWithRougeStrings("MySecretName   ");
             } catch
             {
             }

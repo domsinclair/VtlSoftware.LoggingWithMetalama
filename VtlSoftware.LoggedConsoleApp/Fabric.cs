@@ -6,8 +6,8 @@ namespace VtlSoftware.LoggedConsoleApp
     internal class Fabric : ProjectFabric
     {
         #region Public Methods
-
-        public override void AmendProject(IProjectAmender amender) { FabricExtensions.LogAllPublicMethods(amender); }
+        public override void AmendProject(IProjectAmender amender)
+        { FabricExtensions.LogAllPublicAndPrivateMethods(amender); }
 
         #endregion
     }
