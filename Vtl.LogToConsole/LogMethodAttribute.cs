@@ -23,6 +23,7 @@ namespace Vtl.LogToConsole
     public class LogMethodAttribute : OverrideMethodAspect
     {
         #region Fields
+
         /// <summary>
         /// (Immutable) The logger.
         /// </summary>
@@ -31,7 +32,6 @@ namespace Vtl.LogToConsole
         private readonly ILogger logger;
 
         #endregion
-
 
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
@@ -49,7 +49,7 @@ namespace Vtl.LogToConsole
 
         public override void BuildAspect(IAspectBuilder<IMethod> builder)
         {
-            if(!(builder.Target.Attributes.OfAttributeType(typeof(NoLogAttribute)).Any() ||
+            if(!(builder.Target.Attributes.OfAttributeType(typeof(DoNotLogMethodAttribute)).Any() ||
                 builder.Target.Attributes.OfAttributeType(typeof(TimedLogMethodAttribute)).Any()))
             {
                 builder.Advice.Override(builder.Target, nameof(this.OverrideMethod));

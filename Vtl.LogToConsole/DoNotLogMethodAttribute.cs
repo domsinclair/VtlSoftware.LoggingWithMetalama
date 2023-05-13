@@ -8,15 +8,14 @@ namespace Vtl.LogToConsole
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>
-    /// Attribute for no log. This class cannot be inherited. Add this attribute to methods for which logging is not
-    /// required.
+    /// An Attribute to specifically indicate that a Method should not be logged. This class cannot be inherited.
     /// </summary>
     ///
     /// <seealso cref="Attribute"/>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     [AttributeUsage(AttributeTargets.Method)]
-    public sealed class NoLogAttribute : Attribute
+    public sealed class DoNotLogMethodAttribute : Attribute
     {
     }
 }

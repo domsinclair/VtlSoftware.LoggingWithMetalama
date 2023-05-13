@@ -8,7 +8,7 @@ It uses Microsoft.Extensions.Logging, which means that you should in fact be abl
 
 ## Available Attributes in this Library
 
-### [Log]
+### [LogMethod]
 
 
 This is the basic logging attribute.  It logs entry and exit parameters if they are present.
@@ -17,12 +17,12 @@ It will be added to all public methods by default, unless they are decorated wit
 or the [TimedLog] attribute.
 
 
-### [NoLog]
+### [DoNotLogMethod]
 
 A simple attribute that does what it says.  When applied to a Method no logging will be applied to that method.
 
 
-### [TimedLog]
+### [TimedLogMethod]
 
 This is essentially the same as the [Log] attribute with the sole exception that it also times the execution of the code being logged.
 
@@ -53,6 +53,22 @@ In this example we are refercing a file 'sensitive.txt' which we have set as an 
 
 This static class contains a helper method (BuildInterpolatedString) that provides string building for the log entries that we create and send to the console.
 
-### LogFabric.cs
+### FabricExtensions.cs
 
-This file is the one that performs the magic and ensures that the classes and their methods in the projects that reference this class library get the [Log} aspect added to them according to our ruleset defined within.
+A set of Extension Methods that can be used in a Fabric class in projects that use this library.
+
+Typical usage in a project would be as illustrated below.
+
+``` c#
+internal class Fabric : ProjectFabric
+    {
+        
+
+        public override void AmendProject(IProjectAmender amender) { FabricExtensions.LogAllPublicMethods(amender); }
+
+       
+    }
+   ```
+
+
+    
