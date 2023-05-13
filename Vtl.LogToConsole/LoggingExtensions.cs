@@ -14,6 +14,7 @@ namespace Vtl.LogToConsole
     public static class LoggingExtensions
     {
         #region Public Methods
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
 /// An IProject extension method that Logging options.

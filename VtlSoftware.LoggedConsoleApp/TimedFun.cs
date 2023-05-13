@@ -7,7 +7,7 @@ namespace VtlSoftware.LoggedConsoleApp
     {
         #region Public Methods
 
-        [TimedLog]
+        [TimedLogMethod]
         public void Delay()
         {
             Stopwatch watch = Stopwatch.StartNew();

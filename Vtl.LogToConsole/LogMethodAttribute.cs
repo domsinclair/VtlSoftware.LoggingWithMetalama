@@ -1,5 +1,5 @@
 ﻿////////////////////////////////////////////////////////////////////////////////////////////////////
-// <summary>Implements the timed log attribute class</summary>
+// <summary>Implements the log attribute class</summary>
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using Metalama.Extensions.DependencyInjection;
@@ -8,23 +8,21 @@ using Metalama.Framework.Code;
 using Metalama.Framework.Code.SyntaxBuilders;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Diagnostics;
+using System.Linq;
 
 namespace Vtl.LogToConsole
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
     /// <summary>
-    /// Attribute for timed log. This is the same as the main Log Attrute that provides a set of basic logging
-    /// instructions to a method as well as recording the elapsed time.
+    /// Attribute for log. This is the main Log Attrute that provides a set of basic logging instructions to a method.
     /// </summary>
     ///
     /// <seealso cref="OverrideMethodAspect"/>
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public class TimedLogAttribute : OverrideMethodAspect
+    public class LogMethodAttribute : OverrideMethodAspect
     {
         #region Fields
-
         /// <summary>
         /// (Immutable) The logger.
         /// </summary>
@@ -34,15 +32,34 @@ namespace Vtl.LogToConsole
 
         #endregion
 
+
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 
         #region Public Methods
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <summary>
+/// Builds an aspect.
+/// </summary>
+        ///
+        /// <param name="builder">The builder.</param>
+        ///
+        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.BuildAspect(IAspectBuilder{IMethod})"/>
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        public override void BuildAspect(IAspectBuilder<IMethod> builder)
+        {
+            if(!(builder.Target.Attributes.OfAttributeType(typeof(NoLogAttribute)).Any() ||
+                builder.Target.Attributes.OfAttributeType(typeof(TimedLogMethodAttribute)).Any()))
+            {
+                builder.Advice.Override(builder.Target, nameof(this.OverrideMethod));
+            }
+        }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
-/// Default template of the new method implementation.
-/// </summary>
+        /// Default template of the new method implementation.
+        /// </summary>
         ///
         /// <returns>A dynamic?</returns>
         ///
@@ -55,14 +72,12 @@ namespace Vtl.LogToConsole
             var isTracingEnabled = logger.IsEnabled(LogLevel.Trace);
 
             // Write entry message.
-            //if(isTracingEnabled)
-            //{
-            //    var entryMessage = LogHelpers.BuildInterpolatedString(false);
-            //    entryMessage.AddText(" started.");
-            //    logger.LogTrace((string)entryMessage.ToValue());
-            //}
-
-            Stopwatch watch = Stopwatch.StartNew();
+            if(isTracingEnabled)
+            {
+                var entryMessage = LogHelpers.BuildInterpolatedString(false);
+                entryMessage.AddText(" started.");
+                logger.LogTrace((string)entryMessage.ToValue());
+            }
 
             try
             {
@@ -99,14 +114,6 @@ namespace Vtl.LogToConsole
                 logger.LogWarning((string)failureMessage.ToValue());
 
                 throw;
-            } finally
-            {
-                watch.Stop();
-                var elapsedMessage = LogHelpers.BuildInterpolatedString(false);
-                elapsedMessage.AddText(" elapsed: ");
-                elapsedMessage.AddExpression(watch.ElapsedMilliseconds);
-                elapsedMessage.AddText("ms");
-                logger.LogInformation((string)elapsedMessage.ToValue());
             }
         }
 

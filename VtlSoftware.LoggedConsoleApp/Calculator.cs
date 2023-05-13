@@ -18,6 +18,7 @@ namespace VtlSoftware.LoggedConsoleApp
     internal partial class Calculator
     {
         #region Public Methods
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
 /// Adds.
