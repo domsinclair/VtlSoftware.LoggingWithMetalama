@@ -63,10 +63,8 @@ Typical usage in a project would be as illustrated below.
 internal class Fabric : ProjectFabric
     {
         
-
         public override void AmendProject(IProjectAmender amender) { FabricExtensions.LogAllPublicMethods(amender); }
-
-       
+ 
     }
    ```
 
