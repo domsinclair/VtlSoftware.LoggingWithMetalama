@@ -1,11 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
     internal partial class Program
     {
         #region Private Methods
+
         [DoNotLogMethod]
         static void Main(string[] args)
         {
