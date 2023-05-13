@@ -1,27 +1,31 @@
 ﻿////////////////////////////////////////////////////////////////////////////////////////////////////
-// <summary>Implements the trim string attribute class</summary>
+// file:	Vtl.TimeSavers\SetDateTimeToUtcAttribute.cs
+//
+// summary:	Implements the set date time to UTC attribute class
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
+using System;
 
 namespace Vtl.TimeSavers
 {
     /// <summary>
-    /// Attribute to trim a string. When applied to a property it will trim any string that is passed into it.
+    /// Ab Attribute to set The entered date time to utc.
     /// </summary>
-    public class TrimStringAttribute : FieldOrPropertyAspect
+    [CompileTime]
+    public class SetDateTimeToUtcAttribute : FieldOrPropertyAspect
     {
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
-        /// Sets the override property.
+        /// Sets the Date/Time of the override property.
         /// </summary>
         ///
         /// <value>The override property.</value>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         [Template]
-        private string OverrideProperty { set => meta.Target.FieldOrProperty.Value = value?.Trim(); }
+        private DateTime OverrideProperty { set => meta.Target.FieldOrProperty.Value = value.ToUniversalTime(); }
 
         #region Public Methods
         ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,20 +40,5 @@ namespace Vtl.TimeSavers
         { builder.Advice.Override(builder.Target, nameof(this.OverrideProperty)); }
 
         #endregion
-
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary>
-/// Builds an eligibility.
-/// </summary>
-        ///
-        /// <param name="builder">The builder.</param>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //public override void BuildEligibility(IEligibilityBuilder<IFieldOrProperty> builder)
-        //{
-        //    base.BuildEligibility(builder);
-
-        //    builder.MustBeOfType(typeof(string));
-        //}
     }
 }

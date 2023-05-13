@@ -7,6 +7,7 @@ namespace VtlSoftware.LoggedConsoleApp
     internal partial class Program
     {
         #region Private Methods
+
         [DoNotLogMethod]
         static void Main(string[] args)
         {
@@ -15,6 +16,7 @@ namespace VtlSoftware.LoggedConsoleApp
             .AddSingleton<Calculator>()
             .AddSingleton<StringStuff>()
             .AddSingleton<TimedFun>()
+            .AddSingleton<DateTimeStuff>()
             .BuildServiceProvider();
 
             var calculator = serviceProvider.GetService<Calculator>()!;
@@ -44,6 +46,14 @@ namespace VtlSoftware.LoggedConsoleApp
             try
             {
                 times.Delay();
+            } catch
+            {
+            }
+
+            var dt = serviceProvider.GetService<DateTimeStuff>()!;
+            try
+            {
+                dt.SaveAndReportTime(DateTime.Now);
             } catch
             {
             }

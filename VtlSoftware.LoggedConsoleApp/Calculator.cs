@@ -17,6 +17,12 @@ namespace VtlSoftware.LoggedConsoleApp
     /// </summary>
     internal partial class Calculator
     {
+        #region Fields
+
+        private int myNumber;
+
+        #endregion
+
         #region Public Methods
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
@@ -70,6 +76,11 @@ namespace VtlSoftware.LoggedConsoleApp
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public double Subtract(double a, double b) => a - b;
+
+        #endregion
+
+        #region Public Properties
+        public int MyNumber { get => myNumber; set => myNumber = value; }
 
         #endregion
     }
