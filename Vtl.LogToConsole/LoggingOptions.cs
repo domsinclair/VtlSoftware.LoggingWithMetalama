@@ -21,7 +21,6 @@ namespace Vtl.LogToConsole
     public class LoggingOptions : ProjectExtension
     {
         #region Fields
-
         /// <summary>
         /// Information describing the sensitive.
         /// </summary>
@@ -30,22 +29,25 @@ namespace Vtl.LogToConsole
         #endregion
 
         #region Public Methods
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///---- Initialize   (Method) ----
+        ///
         /// <summary>
-/// Initializes the object from project properties.
-/// </summary>
+        /// Initializes the object from project properties.
+        /// </summary>
+        ///
+        /// <remarks></remarks>
         ///
         /// <param name="project">
-/// The project to which the new <see cref="T:Metalama.Framework.Project.ProjectExtension"/> belongs.
-/// </param>
+        /// The project to which the new <see cref="T:Metalama.Framework.Project.ProjectExtension"/> belongs.
+        /// </param>
         /// <param name="isReadOnly">
-/// A value indicating whether the project data is already read-only. If <c>false</c>, the project data can
-/// still be modified by project fabrics, after which the <see
-/// cref="M:Metalama.Framework.Project.ProjectExtension.MakeReadOnly"/> method will be called.
-/// </param>
+        /// A value indicating whether the project data is already read-only. If <c>false</c>, the project data can
+        /// still be modified by project fabrics, after which the <see
+        /// cref="M:Metalama.Framework.Project.ProjectExtension.MakeReadOnly"/> method will be called.
+        /// </param>
         ///
-        /// <seealso cref="Metalama.Framework.Project.ProjectExtension.Initialize(IProject,bool)"/>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <seealso cref="M:Metalama.Framework.Project.ProjectExtension.Initialize(IProject,bool)"/>
+        ///-------------------------------------------------------------------------------------------------
 
         public override void Initialize(IProject project, bool isReadOnly)
         {
@@ -76,24 +78,25 @@ namespace Vtl.LogToConsole
                     AddKeywords(line);
                 }
             }
-
+            //Debugger.Break();
             sensitiveData = builder.ToImmutable();
         }
 
         #endregion
 
         #region Public Properties
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///---- SensitiveData   (Property) ----
+        ///
         /// <summary>
-/// Gets or sets information describing the sensitive.
-/// </summary>
+        /// Gets or sets information describing the sensitive.
+        /// </summary>
         ///
         /// <exception cref="InvalidOperationException">
-/// Thrown when the requested operation is invalid.
-/// </exception>
+        /// Thrown when the requested operation is invalid.
+        /// </exception>
         ///
         /// <value>Information describing the sensitive.</value>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///-------------------------------------------------------------------------------------------------
 
         public ImmutableHashSet<string> SensitiveData
         {

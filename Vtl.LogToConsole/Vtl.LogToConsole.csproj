@@ -3,9 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>10.0</LangVersion>
-	<Nullable>enable</Nullable>
-	<SensitiveDataPath>$([System.IO.Path]::Combine($(MSBuildProjectDirectory), `Sensitive.txt`))</SensitiveDataPath>
+	<Nullable>enable</Nullable> 
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Authors>Dom Sinclair</Authors>
+	<Company>VtlSoftware Ltd</Company>
+	<Copyright>© VtlSoftware Ltd</Copyright>
+	<PackageOutputPath>bin\Release\</PackageOutputPath>
+	<Version>1.4.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,9 +19,12 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
   </ItemGroup>
-
+	
 	<ItemGroup>
-		<CompilerVisibilityProperty Include="SensitiveDataPath" />
-	</ItemGroup>
+        <None Include="Vtl.LogToConsole.targets">
+            <Pack>true</Pack>
+            <PackagePath>build</PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>

@@ -1,9 +1,10 @@
-﻿using System.Diagnostics;
+﻿
+using System.Diagnostics;
 using Vtl.LogToConsole;
 
 namespace VtlSoftware.LoggedConsoleApp
 {
-    internal partial class TimedFun
+    partial class TimedFun
     {
         #region Public Methods
         [TimedLogMethod]

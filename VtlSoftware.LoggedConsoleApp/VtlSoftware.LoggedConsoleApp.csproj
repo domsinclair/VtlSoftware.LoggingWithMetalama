@@ -5,17 +5,19 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>1.1.0</Version>
+	<SensitiveData>userSecret</SensitiveData>
+	<SensitiveDataPath>$([System.IO.Path]::Combine($(SolutionDir), `Sensitive.txt`))</SensitiveDataPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vtl.LogToConsole\Vtl.LogToConsole.csproj" />
-    <ProjectReference Include="..\Vtl.TimeSavers\Vtl.TimeSavers.csproj" />
+    <PackageReference Include="Vtl.LogToConsole" Version="1.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Sensitive.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Vtl.TimeSavers\Vtl.TimeSavers.csproj" />
   </ItemGroup>
+
+	
 
 </Project>

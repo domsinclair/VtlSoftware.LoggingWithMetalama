@@ -4,6 +4,7 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Vtl.LogToConsole
@@ -33,7 +34,7 @@ namespace Vtl.LogToConsole
             }
 
             var options = parameter.Compilation.Project.LoggingOptions();
-
+            Debugger.Launch();
             return options.SensitiveData.Contains(parameter.Name);
         }
 

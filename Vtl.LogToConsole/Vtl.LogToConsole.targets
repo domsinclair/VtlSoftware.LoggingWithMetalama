@@ -1,0 +1,6 @@
+<Project>
+    <ItemGroup>
+		<CompilerVisibilityProperty Include="SensitiveDataPath" />
+		<CompilerVisibilityProperty Include="SensitiveData" />
+	</ItemGroup>
+</Project>

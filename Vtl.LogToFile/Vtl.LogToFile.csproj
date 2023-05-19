@@ -4,7 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
 	<LangVersion>10.0</LangVersion>
 	<Nullable>enable</Nullable>
-	<SensitiveDataPath>$([System.IO.Path]::Combine($(MSBuildProjectDirectory), `Sensitive.txt`))</SensitiveDataPath>  
+	<SensitiveDataPath>$([System.IO.Path]::Combine($(MSBuildProjectDirectory), `Sensitive.txt`))</SensitiveDataPath>
+	<Configurations>Debug;Release;LamaDebug</Configurations>  
   </PropertyGroup>
 
 </Project>

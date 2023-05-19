@@ -1,6 +1,9 @@
-﻿////////////////////////////////////////////////////////////////////////////////////////////////////
-// <summary>Implements the log attribute class</summary>
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿
+///-------------------------------------------------------------------------------------------------
+// file:	Vtl.LogToConsole\LogMethodAttribute.cs
+//
+// summary:	Implements the log method attribute class
+///-------------------------------------------------------------------------------------------------
 
 using Metalama.Extensions.DependencyInjection;
 using Metalama.Framework.Aspects;
@@ -12,13 +15,14 @@ using System.Linq;
 
 namespace Vtl.LogToConsole
 {
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
-    /// <summary>
-    /// Attribute for log. This is the main Log Attrute that provides a set of basic logging instructions to a method.
-    /// </summary>
+    ///---- LogMethodAttribute   (Class) ----
     ///
-    /// <seealso cref="OverrideMethodAspect"/>
-    ////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// <summary>   Attribute for log method. </summary>
+    ///
+    /// <remarks>    </remarks>
+    ///
+    /// <seealso cref="T:Metalama.Framework.Aspects.OverrideMethodAspect"/>
+    ///-------------------------------------------------------------------------------------------------
 
     public class LogMethodAttribute : OverrideMethodAspect
     {
@@ -32,20 +36,21 @@ namespace Vtl.LogToConsole
 
         #endregion
 
-
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 
         #region Public Methods
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        /// <summary>
-/// Builds an aspect.///
-/// </summary>
+
+        ///---- BuildAspect   (Method) ----
         ///
-        /// <param name="builder">The builder.</param>
+        /// <summary>   Builds an aspect. </summary>
         ///
-        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.BuildAspect(IAspectBuilder{IMethod})"/>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <remarks>    </remarks>
+        ///
+        /// <param name="builder">  The builder. </param>
+        ///
+        /// <seealso cref="M:Metalama.Framework.Aspects.OverrideMethodAspect.BuildAspect(IAspectBuilder{IMethod})"/>
+        ///-------------------------------------------------------------------------------------------------
 
         public override void BuildAspect(IAspectBuilder<IMethod> builder)
         {
@@ -56,15 +61,16 @@ namespace Vtl.LogToConsole
             }
         }
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///---- OverrideMethod   (Method) ----
+        ///
         /// <summary>
         /// Default template of the new method implementation.
         /// </summary>
         ///
         /// <returns>A dynamic?</returns>
         ///
-        /// <seealso cref="Metalama.Framework.Aspects.OverrideMethodAspect.OverrideMethod()"/>
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// <seealso cref="M:Metalama.Framework.Aspects.OverrideMethodAspect.OverrideMethod()"/>
+        ///-------------------------------------------------------------------------------------------------
 
         public override dynamic? OverrideMethod()
         {

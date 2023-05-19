@@ -4,6 +4,7 @@
 
 using Metalama.Framework.Aspects;
 using Metalama.Framework.Code;
+using Metalama.Framework.Eligibility;
 
 namespace Vtl.TimeSavers
 {
@@ -35,21 +36,21 @@ namespace Vtl.TimeSavers
         public override void BuildAspect(IAspectBuilder<IFieldOrProperty> builder)
         { builder.Advice.Override(builder.Target, nameof(this.OverrideProperty)); }
 
-        #endregion
-
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         /// <summary>
-/// Builds an eligibility.
-/// </summary>
+        /// Builds an eligibility.
+        /// </summary>
         ///
         /// <param name="builder">The builder.</param>
         ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        //public override void BuildEligibility(IEligibilityBuilder<IFieldOrProperty> builder)
-        //{
-        //    base.BuildEligibility(builder);
+        public override void BuildEligibility(IEligibilityBuilder<IFieldOrProperty> builder)
+        {
+            base.BuildEligibility(builder);
 
-        //    builder.MustBeOfType(typeof(string));
-        //}
+            builder.Type().MustBe(typeof(string));
+        }
+
+        #endregion
     }
 }

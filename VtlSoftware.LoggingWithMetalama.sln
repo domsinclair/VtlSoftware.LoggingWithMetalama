@@ -8,36 +8,54 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B29FC50A-77C5-493D-9DBF-1124A73B14A8}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.md = Readme.md
+		Sensitive.txt = Sensitive.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtl.LogToConsole", "Vtl.LogToConsole\Vtl.LogToConsole.csproj", "{17E3463B-361D-4DFE-A924-F9D085FD1EC6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtl.LogToFile", "Vtl.LogToFile\Vtl.LogToFile.csproj", "{B691D850-0C5D-4715-A6EA-CC1F6D18318E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vtl.TimeSavers", "Vtl.TimeSavers\Vtl.TimeSavers.csproj", "{751FB035-414F-41C4-8786-3699B3246D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtl.TimeSavers", "Vtl.TimeSavers\Vtl.TimeSavers.csproj", "{751FB035-414F-41C4-8786-3699B3246D0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VtlSoftware.StructuredLogApp", "VtlSoftware.StructuredLogApp\VtlSoftware.StructuredLogApp.csproj", "{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		LamaDebug|Any CPU = LamaDebug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.LamaDebug|Any CPU.ActiveCfg = LamaDebug|Any CPU
+		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.LamaDebug|Any CPU.Build.0 = LamaDebug|Any CPU
 		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFDFD7FF-2190-457B-B112-5E7C6D0901FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.LamaDebug|Any CPU.ActiveCfg = LamaDebug|Any CPU
+		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.LamaDebug|Any CPU.Build.0 = LamaDebug|Any CPU
 		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17E3463B-361D-4DFE-A924-F9D085FD1EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.LamaDebug|Any CPU.ActiveCfg = LamaDebug|Any CPU
+		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.LamaDebug|Any CPU.Build.0 = LamaDebug|Any CPU
 		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B691D850-0C5D-4715-A6EA-CC1F6D18318E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{751FB035-414F-41C4-8786-3699B3246D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{751FB035-414F-41C4-8786-3699B3246D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751FB035-414F-41C4-8786-3699B3246D0A}.LamaDebug|Any CPU.ActiveCfg = LamaDebug|Any CPU
+		{751FB035-414F-41C4-8786-3699B3246D0A}.LamaDebug|Any CPU.Build.0 = LamaDebug|Any CPU
 		{751FB035-414F-41C4-8786-3699B3246D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751FB035-414F-41C4-8786-3699B3246D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.LamaDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.LamaDebug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4A32B4-7ED7-4F66-ABE0-EF81CC52F000}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
